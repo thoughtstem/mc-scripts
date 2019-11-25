@@ -13,6 +13,7 @@
   "raco-tools"))
 
 (define raco-commands
-  '(("run-script"            mc-scripts/raco-tools/run-script "Fetches script and installs it." 100)
-))
+  '(("run-script" mc-scripts/raco-tools/run-script "Fetches script and installs it." 100)
+    ("mc-gui"     mc-scripts/raco-tools/mc-gui     "Adds the MC Script Runner to the Desktop." 100)
+    ))
 
