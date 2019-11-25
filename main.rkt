@@ -1,5 +1,5 @@
 #lang racket
 
-(require scribble/manual
-         )
-
+(system "cp /home/thoughtstem/.racket/7.0/pkgs/mc-script/script-runner.desktop /home/thoughtstem/Desktop/")
+(system "chmod +x /home/thoughtstem/Desktop/script-runner.desktop")
+        
