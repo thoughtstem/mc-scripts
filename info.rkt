@@ -13,6 +13,6 @@
   "raco-tools"))
 
 (define raco-commands
-  '(("run-script"            mc-scripts/raco-tools/raco-new-script "Fetches script and installs it." 100)
+  '(("run-script"            mc-scripts/raco-tools/run-script "Fetches script and installs it." 100)
 ))
 
