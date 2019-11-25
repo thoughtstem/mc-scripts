@@ -1,8 +1,6 @@
 #lang at-exp racket
 
-(provide msg-alert
-         check-pkg
-         add-test)
+(provide check-pkg)
 
 (define racket-version
   (version))
@@ -29,12 +27,26 @@
   (msg-alert (~a "Package " pkg " is not installed, installing ..."))
   (system (~a "raco pkg install --auto --update-deps --batch --skip-installed --no-setup " url)))
 
-(define (check-pkg pkg url)
+(define (install-or-update pkg url)
   (if (directory-exists? (pkg-path pkg))
       (update-pkg pkg) 
       (install-pkg pkg url)))
 
+(define (check-pkg pkg url code)
+  (if (and (list? pkg)
+           (list? url))
+      (map install-or-update pkg url)
+      (install-or-update pkg url))
+  (run-setup pkg)
+  (if (and (list? code)
+           (list? pkg))
+      (begin
+        (set! pkg (map (curryr ~a "-test") pkg))
+        (map add-test code pkg))
+      (add-test code (~a pkg "-test"))))
+
 (define (add-test code name)
+  (msg-alert (~a "Adding " name " to " test-path))
   (if (directory-exists? test-path)
       (put-test-file code name)
       (begin
@@ -43,4 +55,13 @@
 
 (define (put-test-file code name)
    (system (~a "echo '" code "' > " test-path name ".rkt;")))
+
+(define (run-setup pkg)
+  (if (list? pkg)
+      (set! pkg (apply ~a (map (curryr ~a " ") pkg)))
+      #t)
+            
+  (msg-alert (~a "Running raco setup on " pkg))
+  (system (~a "raco setup " pkg)))
+  
 
