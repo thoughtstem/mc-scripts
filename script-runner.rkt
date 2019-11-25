@@ -50,7 +50,7 @@
                  (send msg set-label "Fetching script...")
                  (system (string-append "raco run-script " (send text-field get-value)))
                  (send msg set-label "Done.")
-                 (send text-field set-label "hi"))])
+                 (send text-field set-value ""))])
 
 
 
