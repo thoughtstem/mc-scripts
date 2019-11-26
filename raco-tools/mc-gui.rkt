@@ -18,11 +18,11 @@
     (thunk
      (display new-text))))
 
-(string-sub-all! (build-path mc-path "script-runner.desktop")
+(string-sub-all! (~a mc-path "script-runner.desktop")
   "VERSION" racket-version)
 
-(string-sub-all! (build-path mc-path "script-runner.desktop")
-  "HOME" home-path)
+(string-sub-all! (~a mc-path "script-runner.desktop")
+  "HOME" (~a home-path))
 
 (system (~a "cp " home-path ".racket/" racket-version "/pkgs/mc-scripts/script-runner.desktop "
               home-path "Desktop/"))
