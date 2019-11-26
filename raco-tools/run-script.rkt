@@ -10,9 +10,9 @@
 
 (displayln (~a "Fetching " script-name " script..."))
 
-(system (~a "racket <(curl https://raw.githubusercontent.com/thoughtstem/metacoders-dot-org/gh-pages/"
+(system (~a "echo 'racket <(curl https://raw.githubusercontent.com/thoughtstem/metacoders-dot-org/gh-pages/"
             script-name
-            ".rkt)"))
+            ".rkt)' | bash"))
 
 
 
