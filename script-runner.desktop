@@ -5,4 +5,4 @@ Name=MC Script Runner
 Comment=MC Script Runner
 Icon=/home/thoughtstem/.racket/7.0/pkgs/mc-scripts/mc-logo.png
 Exec=racket /home/thoughtstem/.racket/7.0/pkgs/mc-scripts/script-runner.rkt
-Terminal=false
+Terminal=true
