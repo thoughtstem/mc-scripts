@@ -20,11 +20,11 @@
   (println "#######################################"))
 
 (define (update-pkg pkg)
-  (msg-alert (~a "Package " pkg " is installed, updating ..."))
+  (msg-alert (~a "Package " pkg " is installed, updating"))
   (system (~a "raco pkg update --auto --update-deps --batch --skip-uninstalled --no-setup " pkg)))
 
 (define (install-pkg pkg url)
-  (msg-alert (~a "Package " pkg " is not installed, installing ..."))
+  (msg-alert (~a "Package " pkg " is not installed, installing"))
   (system (~a "raco pkg install --auto --update-deps --batch --skip-installed --no-setup " url)))
 
 (define (install-or-update pkg url)
