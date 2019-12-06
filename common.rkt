@@ -47,7 +47,7 @@
 
 (define (run-code name)
   (msg-alert (~a "Running " name " from " test-path))
-  (system (~a "racket " test-path " " name)))
+  (system (~a "racket " test-path " " name ".rkt")))
 
 (define (add-test code name)
   (msg-alert (~a "Adding " name " to " test-path))
