@@ -45,13 +45,18 @@
         (map add-test code pkg))
       (add-test code (~a pkg "-test"))))
 
+(define (run-code name)
+  (msg-alert (~a "Running " name " from " test-path))
+  (system (~a "racket " test-path " " name)))
+
 (define (add-test code name)
   (msg-alert (~a "Adding " name " to " test-path))
   (if (directory-exists? test-path)
       (put-test-file code name)
       (begin
         (system (~a "mkdir " test-path))
-        (put-test-file code name))))
+        (put-test-file code name)))
+  (run-code name))
 
 (define (put-test-file code name)
    (system (~a "echo '" code "' > " test-path name ".rkt;")))
