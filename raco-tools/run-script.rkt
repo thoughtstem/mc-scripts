@@ -7,7 +7,7 @@
 
 (displayln (~a "Fetching " script-name " script..."))
 
-(system (~a "echo 'racket <(curl http://metacoders.org/scripts/"
+(system (~a "echo 'racket <(curl https://metacoders.org/scripts/"
             script-name
             ".rkt)' | bash"))
 
