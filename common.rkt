@@ -9,7 +9,7 @@
   (find-system-path 'home-dir))
 
 (define test-path
-  (~a  home-path "Desktop/TEST-FILES/"))
+  (~a  home-path "TEST-FILES/"))
 
 (define (pkg-path pkg)
   (~a home-path ".racket/" racket-version "/pkgs/" pkg))
