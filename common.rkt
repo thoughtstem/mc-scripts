@@ -32,12 +32,17 @@
       (update-pkg pkg) 
       (install-pkg pkg url)))
 
-(define (check-pkg pkg url code)
+(define (check-pkg pkg url code [extra #f])
   (if (and (list? pkg)
            (list? url))
       (map install-or-update pkg url)
       (install-or-update pkg url))
   (run-setup pkg)
+  ; run setup on ratchet
+  (cond
+    [(= extra "setup-ratchet") (begin (msg-alert "Runing raco setup ratchet")
+                                      (system "raco setup ratchet"))]
+    [else (system "No extra commands")])
   (if (and (list? code)
            (list? pkg))
       (begin
