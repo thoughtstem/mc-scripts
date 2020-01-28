@@ -40,9 +40,9 @@
   (run-setup pkg)
   ; run setup on ratchet
   (cond
-    [(= extra "setup-ratchet") (begin (msg-alert "Runing raco setup ratchet")
+    [(equal? extra "setup-ratchet") (begin (msg-alert "Runing raco setup ratchet")
                                       (system "raco setup ratchet"))]
-    [else (system "No extra commands")])
+    [else (println "No extra commands")])
   (if (and (list? code)
            (list? pkg))
       (begin
