@@ -3,5 +3,5 @@ Type=Application
 Terminal=true
 Name=MC Script Runner
 Comment=MC Script Runner
-Icon=HOME.racket/VERSION/pkgs/mc-scripts/mc-logo.png
+Icon=HOME.racket/VERSION/pkgs/mc-scripts/img/mc-logo.png
 Exec=racket HOME.racket/VERSION/pkgs/mc-scripts/script-runner.rkt
