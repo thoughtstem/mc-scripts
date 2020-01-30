@@ -35,7 +35,7 @@
                                    (~a home-path
                                        ".racket/"
                                        racket-version
-                                       "/pkgs/mc-scripts/img/mc-logo.png")
+                                       "/pkgs/mc-scripts/img/mc-banner.png")
                                        #:backing-scale 1.5)
                                    10 10))]))
 
