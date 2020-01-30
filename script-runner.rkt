@@ -26,14 +26,18 @@
 (define logo-canvas (new mc-canvas%
                          [parent frame]
                          [style (list 'transparent)]
-                         [min-width 280]
-                         [min-height 110]
+                         [min-width 225]
+                         [min-height 100]
                          [paint-callback
                           (lambda (canvas dc)
-                            (define pos-center (let-values ([(x y) (send dc get-size)]) (list x y)))
-                            (define pos-x (- (/ (first pos-center) 2) 140))
-                            (send dc draw-bitmap (read-bitmap (~a home-path ".racket/" racket-version "/pkgs/mc-scripts/img/mc-logo.png")) pos-x 10)
-                            )]))
+                            (send dc draw-bitmap
+                                  (read-bitmap
+                                   (~a home-path
+                                       ".racket/"
+                                       racket-version
+                                       "/pkgs/mc-scripts/img/mc-logo.png")
+                                       #:backing-scale 1.5)
+                                   10 10))]))
 
 (define msg (new message% [parent frame] 
                  [horiz-margin 10]
