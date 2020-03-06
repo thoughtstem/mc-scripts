@@ -1,5 +1,10 @@
-
-*.bak
+*.rkt~
+*.swp
 *.dep
 *.zo
 *.bak
+*.scrbl~
+*.DS_Store
+doc/
+*.bak
+*.html
